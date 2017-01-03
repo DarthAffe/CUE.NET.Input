@@ -4,9 +4,8 @@ using System.Linq;
 using CUE.NET.Devices;
 using CUE.NET.Devices.Generic.Enums;
 using CUE.NET.Input.EventArgs;
-using InputAction = CUE.NET.Input.Input.Enums.InputAction;
 
-namespace CUE.NET.Input.Input
+namespace CUE.NET.Input.Input.Enums
 {
     internal class DeviceInput : IDeviceInput
     {

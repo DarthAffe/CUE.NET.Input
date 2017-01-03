@@ -80,7 +80,7 @@ namespace CUE.NET.Input.Input
                         RawDataReceived?.Invoke(this, new RawDataReceivedEventArgs(_hidDevice, _buffer, count));
                 }
                 catch (TimeoutException)
-                {/* gogo do something with your device :p */}
+                { /* gogo do something with your device :p */ }
                 catch (Exception ex)
                 {
                     Debug.WriteLine("HIDInputLoop-Exception: " + ex.Message);

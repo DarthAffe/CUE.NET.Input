@@ -2,13 +2,13 @@
 
 namespace CUE.NET.Input.Input
 {
-    public class InputBitMask
+    internal class InputBitMask
     {
         #region Properties & Fields
 
-        public int ContainingByte { get; }
-        public int Bit { get; }
-        public CorsairLedId LedId { get; }
+        internal int ContainingByte { get; }
+        internal int Bit { get; }
+        internal CorsairLedId LedId { get; }
 
         private byte _mask;
 
@@ -16,7 +16,7 @@ namespace CUE.NET.Input.Input
 
         #region Constructors
 
-        public InputBitMask(CorsairLedId ledId)
+        internal InputBitMask(CorsairLedId ledId)
         {
             ContainingByte = ((int)ledId - 1) / 8;
             Bit = (int)ledId - (ContainingByte * 8);
@@ -30,7 +30,7 @@ namespace CUE.NET.Input.Input
 
         #region Methods
 
-        public bool IsSet(byte[] data, int offset)
+        internal bool IsSet(byte[] data, int offset)
         {
             try
             {

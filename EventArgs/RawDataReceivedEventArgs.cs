@@ -6,15 +6,15 @@ namespace CUE.NET.Input.EventArgs
     {
         #region Properties & Fields
 
-        public HidDevice Device { get; }
-        public byte[] Buffer { get; }
-        public int Count { get; }
+        internal HidDevice Device { get; }
+        internal byte[] Buffer { get; }
+        internal int Count { get; }
 
         #endregion
 
         #region Constructors
 
-        public RawDataReceivedEventArgs(HidDevice device, byte[] buffer, int count)
+        internal RawDataReceivedEventArgs(HidDevice device, byte[] buffer, int count)
         {
             this.Device = device;
             this.Buffer = buffer;

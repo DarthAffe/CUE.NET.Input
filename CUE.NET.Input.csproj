@@ -54,7 +54,7 @@
     <Compile Include="CueDeviceExtensions.cs" />
     <Compile Include="EventArgs\OnInputEventArgs.cs" />
     <Compile Include="EventArgs\RawDataReceivedEventArgs.cs" />
-    <Compile Include="Input\DeviceInput.cs" />
+    <Compile Include="Input\Enums\DeviceInput.cs" />
     <Compile Include="Input\Enums\InputAction.cs" />
     <Compile Include="Input\HIDInputLoop.cs" />
     <Compile Include="Input\IDeviceInput.cs" />

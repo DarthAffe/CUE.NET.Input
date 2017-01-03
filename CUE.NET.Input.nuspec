@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>CUE.NET.Input</id>
+    <title>CUE.NET.Input</title>
+    <version>1.0</version>
+    <authors>Darth Affe</authors>
+    <owners>Darth Affe</owners>
+    <projectUrl>https://github.com/DarthAffe/CUE.NET.Inut</projectUrl>
+    <licenseUrl>https://raw.githubusercontent.com/DarthAffe/CUE.NET.Input/master/LICENSE</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Corsair HID SDK Wrapper Input</description>
+    <releaseNotes>
+    </releaseNotes>
+    <summary>Input-module for CUE.NET</summary>
+    <copyright>Copyright © Wyrez 2017</copyright>
+    <language>en-US</language>
+  </metadata>
+  <files>
+    <file src="bin\CUE.NET.Input.dll" target="lib\net45\CUE.NET.Input.dll" />
+    <file src="bin\CUE.NET.Input.pdb" target="lib\net45\CUE.NET.Input.pdb" />
+    <file src="bin\CUE.NET.Input.xml" target="lib\net45\CUE.NET.Input.XML" />
+  </files>
+</package>

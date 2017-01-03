@@ -19,11 +19,11 @@ namespace CUE.NET.Input.Input
         internal InputBitMask(CorsairLedId ledId)
         {
             ContainingByte = ((int)ledId - 1) / 8;
-            Bit = (int)ledId - (ContainingByte * 8);
+            Bit = ((int)ledId - (ContainingByte * 8)) - 1;
 
             this.LedId = ledId;
 
-            _mask = (byte)(1 << (Bit - 1));
+            _mask = (byte)(1 << Bit);
         }
 
         #endregion

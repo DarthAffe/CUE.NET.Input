@@ -4,8 +4,9 @@ using System.Linq;
 using CUE.NET.Devices;
 using CUE.NET.Devices.Generic.Enums;
 using CUE.NET.Input.EventArgs;
+using CUE.NET.Input.Input.Enums;
 
-namespace CUE.NET.Input.Input.Enums
+namespace CUE.NET.Input.Input
 {
     internal class DeviceInput : IDeviceInput
     {
@@ -83,7 +84,7 @@ namespace CUE.NET.Input.Input.Enums
         {
             List<CorsairLedId> activeInput = new List<CorsairLedId>();
             foreach (InputBitMask bitMask in _bitMasks)
-                if (bitMask.IsSet(rawDataReceivedEventArgs.Buffer, 1))
+                if (bitMask.IsSet(rawDataReceivedEventArgs.Buffer, 1)) // DarthAffe 03.01.2017: The first byte seems to be some sort of id (it's always 0x03) so we need to ignore it here.
                     activeInput.Add(bitMask.LedId);
 
             foreach (CorsairLedId lastActiveLedId in _lastActiveInput)

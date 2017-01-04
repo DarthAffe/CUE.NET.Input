@@ -10,12 +10,17 @@
     <licenseUrl>https://raw.githubusercontent.com/DarthAffe/CUE.NET.Input/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>Corsair HID SDK Wrapper Input</description>
-    <releaseNotes>
-    </releaseNotes>
+    <releaseNotes>Initial release</releaseNotes>
     <summary>Input-module for CUE.NET</summary>
     <copyright>Copyright © Wyrez 2017</copyright>
     <language>en-US</language>
+    
+    <dependencies>
+      <package id="CUE.NET" version="1.1.0.2" targetFramework="net45" />
+      <package id="HidSharp" version="1.5" targetFramework="net45" />
+    </dependencies>
   </metadata>
+  
   <files>
     <file src="bin\CUE.NET.Input.dll" target="lib\net45\CUE.NET.Input.dll" />
     <file src="bin\CUE.NET.Input.pdb" target="lib\net45\CUE.NET.Input.pdb" />

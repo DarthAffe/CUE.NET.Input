@@ -1,6 +1,6 @@
 ﻿using CUE.NET.Devices;
 using CUE.NET.Devices.Generic.Enums;
-using CUE.NET.Input.Input.Enums;
+using CUE.NET.Input.Enums;
 
 namespace CUE.NET.Input.EventArgs
 {

@@ -8,7 +8,7 @@ using CUE.NET.Devices.Generic.Enums;
 using CUE.NET.Exceptions;
 using CUE.NET.Groups;
 using CUE.NET.Input;
-using InputAction = CUE.NET.Input.Input.Enums.InputAction;
+using InputAction = CUE.NET.Input.Enums.InputAction;
 
 namespace SimpleDevTest
 {

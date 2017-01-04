@@ -39,6 +39,7 @@ namespace CUE.NET.Input
         /// </summary>
         public static Dictionary<string, HIDId> MouseIds { get; } = new Dictionary<string, HIDId>
         {
+            //TODO DarthAffe 04.01.2017: Interface, Collection and Buffer is currently unknown for mice so this won't work!
             /*    Name                       VendorId  ProdId  Iface Col  Buffer */
             { "KATAR",             new HIDId(VendorId, 0x1b22, 0x01, 0x03, 0)},
             { "M65 PRO RGB",       new HIDId(VendorId, 0x1b2e, 0x01, 0x03, 0)},
@@ -55,6 +56,7 @@ namespace CUE.NET.Input
         /// </summary>
         public static Dictionary<string, HIDId> HeadsetIds { get; } = new Dictionary<string, HIDId>
         {
+            //TODO DarthAffe 04.01.2017: Interface, Collection and Buffer is currently unknown for headsets so this won't work!
             /*    Name                       VendorId  ProdId  Iface Col  Buffer */
             { "VOID SURROUND",     new HIDId(VendorId, 0x0a30, 0x01, 0x03, 0)},
             { "VOID USB",          new HIDId(VendorId, 0x0a0f, 0x01, 0x03, 0)},

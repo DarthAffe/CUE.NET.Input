@@ -1,4 +1,4 @@
-﻿namespace CUE.NET.Input.Input.Enums
+﻿namespace CUE.NET.Input.Enums
 {
     /// <summary>
     /// Contains a list of possible key-actions.

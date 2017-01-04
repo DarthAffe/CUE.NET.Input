@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using CUE.NET.Devices;
 using CUE.NET.Devices.Generic.Enums;
+using CUE.NET.Input.Enums;
 using CUE.NET.Input.EventArgs;
-using CUE.NET.Input.Input.Enums;
 
 namespace CUE.NET.Input.Input
 {

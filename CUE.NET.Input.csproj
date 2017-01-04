@@ -56,7 +56,7 @@
     <Compile Include="EventArgs\RawDataReceivedEventArgs.cs" />
     <Compile Include="Input\HIDId.cs" />
     <Compile Include="Input\DeviceInput.cs" />
-    <Compile Include="Input\Enums\InputAction.cs" />
+    <Compile Include="Enums\InputAction.cs" />
     <Compile Include="Input\HIDInputLoop.cs" />
     <Compile Include="Input\IDeviceInput.cs" />
     <Compile Include="Input\IInputLoop.cs" />

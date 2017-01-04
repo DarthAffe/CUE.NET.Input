@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
@@ -28,7 +27,7 @@ namespace CUE.NET.Input.Input
 
         #region Constructors
 
-        public HIDInputLoop(ICueDevice cueDevice)
+        internal HIDInputLoop(ICueDevice cueDevice)
         {
             this._cueDevice = cueDevice;
         }
@@ -94,19 +93,18 @@ namespace CUE.NET.Input.Input
         private void ConnectDevice()
         {
             HidDeviceLoader loader = new HidDeviceLoader();
-            int? deviceId = CorsairUSBIds.GetIdFromDeviceInfo(_cueDevice.DeviceInfo);
+            HIDId deviceId = CorsairHIDIds.GetHidIdFromDeviceInfo(_cueDevice.DeviceInfo);
             if (deviceId == null) return;
 
-            IEnumerable<HidDevice> possibleDevices = loader.GetDevices(CorsairUSBIds.VENDOR_ID, deviceId).Where(x => x.MaxInputReportLength == 64).ToList();
-            //TODO DarthAffe 03.01.2017: This needs some sort of verification ...
-            _hidDevice = possibleDevices.FirstOrDefault(x => x.DevicePath.Contains("&col03"))
-                      ?? possibleDevices.FirstOrDefault(x => x.DevicePath.Contains("&mi_01"))
-                      ?? possibleDevices.FirstOrDefault();
+            _buffer = new byte[deviceId.InputBufferSize];
+
+            _hidDevice = loader.GetDevices(deviceId.VendorId, deviceId.ProductId)
+                                   .FirstOrDefault(d => d.MaxInputReportLength == deviceId.InputBufferSize
+                                                     && d.DevicePath.Contains($"mi_{deviceId.Interface:X2}")
+                                                     && d.DevicePath.Contains($"col{deviceId.Collection:X2}"));
 
             if (!(_hidDevice?.TryOpen(out _inputStream) ?? false))
                 _inputStream = null;
-
-            _buffer = new byte[_hidDevice?.MaxInputReportLength ?? 0];
         }
 
         #endregion

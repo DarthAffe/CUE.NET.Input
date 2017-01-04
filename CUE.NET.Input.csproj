@@ -50,10 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CorsairUSBIds.cs" />
+    <Compile Include="CorsairHIDIds.cs" />
     <Compile Include="CueDeviceExtensions.cs" />
     <Compile Include="EventArgs\OnInputEventArgs.cs" />
     <Compile Include="EventArgs\RawDataReceivedEventArgs.cs" />
+    <Compile Include="Input\HIDId.cs" />
     <Compile Include="Input\DeviceInput.cs" />
     <Compile Include="Input\Enums\InputAction.cs" />
     <Compile Include="Input\HIDInputLoop.cs" />

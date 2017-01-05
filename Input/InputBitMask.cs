@@ -6,9 +6,13 @@ namespace CUE.NET.Input.Input
     {
         #region Properties & Fields
 
+        // ReSharper disable MemberCanBePrivate.Global
+
         internal int ContainingByte { get; }
         internal int Bit { get; }
         internal CorsairLedId LedId { get; }
+
+        // ReSharper restore MemberCanBePrivate.Global
 
         private byte _mask;
 

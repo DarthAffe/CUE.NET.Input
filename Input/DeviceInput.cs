@@ -63,6 +63,7 @@ namespace CUE.NET.Input.Input
             {
                 if (_eventHandlers.Any())
                 {
+                    // ReSharper disable once InvertIf
                     if (!(_inputLoop?.IsRunning ?? false))
                     {
                         _lastActiveInput = new List<CorsairLedId>();
@@ -73,8 +74,10 @@ namespace CUE.NET.Input.Input
                 }
                 else
                 {
+                    // ReSharper disable once InvertIf
                     if (_inputLoop?.IsRunning ?? false)
                     {
+                        // ReSharper disable once PossibleNullReferenceException - This is checked in the condition above
                         _inputLoop.Stop();
                         _inputLoop.RawDataReceived -= InputLoopOnRawDataReceived;
                         _inputLoop = null;
@@ -87,6 +90,7 @@ namespace CUE.NET.Input.Input
         private void InputLoopOnRawDataReceived(object sender, RawDataReceivedEventArgs rawDataReceivedEventArgs)
         {
             List<CorsairLedId> activeInput = new List<CorsairLedId>();
+            // ReSharper disable once LoopCanBeConvertedToQuery - no ...
             foreach (InputBitMask bitMask in _bitMasks)
                 if (bitMask.IsSet(rawDataReceivedEventArgs.Buffer, 1)) // DarthAffe 03.01.2017: The first byte seems to be some sort of id (it's always 0x03) so we need to ignore it here.
                     activeInput.Add(bitMask.LedId);

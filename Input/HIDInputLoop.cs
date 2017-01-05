@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using CUE.NET.Devices;
@@ -14,7 +13,7 @@ namespace CUE.NET.Input.Input
 
         private ICueDevice _cueDevice;
 
-        private bool _isStopped = false;
+        private bool _isStopped;
         private Thread _updateLoop;
 
         private HidDevice _hidDevice;
@@ -80,9 +79,8 @@ namespace CUE.NET.Input.Input
                 }
                 catch (TimeoutException)
                 { /* gogo do something with your device :p */ }
-                catch (Exception ex)
+                catch
                 {
-                    Debug.WriteLine("HIDInputLoop-Exception: " + ex.Message);
                     _inputStream?.Dispose();
                     _inputStream = null;
                     Thread.Sleep(1000);

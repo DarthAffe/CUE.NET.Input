@@ -1,4 +1,7 @@
-﻿using HidSharp;
+﻿// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Global
+
+using HidSharp;
 
 namespace CUE.NET.Input.EventArgs
 {

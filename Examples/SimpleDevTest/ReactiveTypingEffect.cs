@@ -21,6 +21,7 @@ namespace SimpleDevTest
         private EventHandler<OnInputEventArgs> _eventHandler = (sender, args) => { };
         private Dictionary<CorsairLedId, float> _alphaValues = new Dictionary<CorsairLedId, float>();
 
+        // ReSharper disable once MemberCanBePrivate.Global
         public float DecayTime { get; set; } = 1f;
 
         #endregion

@@ -1,4 +1,7 @@
-﻿using CUE.NET.Devices;
+﻿// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Global
+
+using CUE.NET.Devices;
 using CUE.NET.Devices.Generic.Enums;
 using CUE.NET.Input.Enums;
 

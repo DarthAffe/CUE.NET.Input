@@ -1,4 +1,7 @@
-﻿namespace CUE.NET.Input.Input
+﻿// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
+
+namespace CUE.NET.Input.Input
 {
     /// <summary>
     /// Represents a set of needed parameters do identify a single HID-Device.

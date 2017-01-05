@@ -31,7 +31,7 @@ namespace CUE.NET.Input
             {"K70 RGB",           new HIDId(VendorId, 0x1b13, 0x01, 0x03, 64)},
             {"K95 RGB",           new HIDId(VendorId, 0x1b11, 0x01, 0x03, 64)},
             {"STRAFE",            new HIDId(VendorId, 0x1b15, 0x01, 0x03, 64)},
-            {"STRAFE RGB",        new HIDId(VendorId, 0x1b20, 0x01, 0x03, 64)},
+            {"STRAFE RGB",        new HIDId(VendorId, 0x1b20, 0x01, 0x03, 64)}
         };
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace CUE.NET.Input
             { "SABRE RGB",         new HIDId(VendorId, 0x1b2f, 0x01, 0x03, 0)},
             { "SABRE RGB Optical", new HIDId(VendorId, 0x1b14, 0x01, 0x03, 0)},
             { "SABRE RGB Laser",   new HIDId(VendorId, 0x1b19, 0x01, 0x03, 0)},
-            { "Scimitar",          new HIDId(VendorId, 0x1b1e, 0x01, 0x03, 0)},
+            { "Scimitar",          new HIDId(VendorId, 0x1b1e, 0x01, 0x03, 0)}
         };
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace CUE.NET.Input
             { "VOID SURROUND",     new HIDId(VendorId, 0x0a30, 0x01, 0x03, 0)},
             { "VOID USB",          new HIDId(VendorId, 0x0a0f, 0x01, 0x03, 0)},
             { "VOID WIRELESS",     new HIDId(VendorId, 0x0a0c, 0x01, 0x03, 0)},
-            { "Generic Headset",   new HIDId(VendorId, 0x0100, 0x01, 0x03, 0)},
+            { "Generic Headset",   new HIDId(VendorId, 0x0100, 0x01, 0x03, 0)}
         };
 
         /// <summary>
@@ -72,6 +72,8 @@ namespace CUE.NET.Input
         public static HIDId GetHidIdFromDeviceInfo(IDeviceInfo deviceInfo)
         {
             HIDId id;
+            // ReSharper disable once SwitchStatementMissingSomeCases
+            // ReSharper disable RedundantAssignment - yeah but i like to see what happens here
             switch (deviceInfo.Type)
             {
                 case CorsairDeviceType.Keyboard:
@@ -90,6 +92,7 @@ namespace CUE.NET.Input
                     id = null;
                     break;
             }
+            // ReSharper restore RedundantAssignment
 
             return id;
         }

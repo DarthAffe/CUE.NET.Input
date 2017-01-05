@@ -21,7 +21,9 @@ namespace CUE.NET.Input.Input
 
         private List<EventHandler<OnInputEventArgs>> _eventHandlers = new List<EventHandler<OnInputEventArgs>>();
 
-        private List<CorsairLedId> _lastActiveInput = new List<CorsairLedId>();
+        private List<CorsairLedId> _lastActiveInput;
+
+        public CorsairLedId[] ActiveInputs => _lastActiveInput?.ToArray();
 
         #endregion
 
@@ -63,6 +65,7 @@ namespace CUE.NET.Input.Input
                 {
                     if (!(_inputLoop?.IsRunning ?? false))
                     {
+                        _lastActiveInput = new List<CorsairLedId>();
                         _inputLoop = new HIDInputLoop(_cueDevice);
                         _inputLoop.RawDataReceived += InputLoopOnRawDataReceived;
                         _inputLoop.Start();
@@ -75,6 +78,7 @@ namespace CUE.NET.Input.Input
                         _inputLoop.Stop();
                         _inputLoop.RawDataReceived -= InputLoopOnRawDataReceived;
                         _inputLoop = null;
+                        _lastActiveInput = null;
                     }
                 }
             }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CUE.NET.Devices;
+using CUE.NET.Devices.Generic.Enums;
 using CUE.NET.Input.EventArgs;
 using CUE.NET.Input.Input;
 
@@ -39,6 +40,16 @@ namespace CUE.NET.Input
         {
             IDeviceInput deviceInput = GetOrCreateDeviceInput(cueDevice);
             deviceInput.UnregisterEventHandler(eventHandler);
+        }
+
+        /// <summary>
+        /// Gets an array of <see cref="CorsairLedId"/> containing all currencly ledIds considered <see cref="CUE.NET.Input.Enums.InputAction.Pressed"/>.
+        /// </summary>
+        /// <param name="cueDevice">The <see cref="ICueDevice"/> to get the active inputs from.</param>
+        /// <returns>An array of <see cref="CorsairLedId"/> containing all currencly ledIds considered <see cref="CUE.NET.Input.Enums.InputAction.Pressed"/>.</returns>
+        public static CorsairLedId[] GetActiveInputs(this ICueDevice cueDevice)
+        {
+            return GetOrCreateDeviceInput(cueDevice).ActiveInputs;
         }
 
         private static IDeviceInput GetOrCreateDeviceInput(ICueDevice cueDevice)

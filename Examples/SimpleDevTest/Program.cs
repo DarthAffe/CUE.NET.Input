@@ -37,8 +37,7 @@ namespace SimpleDevTest
                 highlightBrushColor.AddEffect(new ReactiveTypingEffect(CueSDK.KeyboardSDK) { DecayTime = 2f });
                 ListLedGroup highlightGroupColor = new ListLedGroup(CueSDK.KeyboardSDK, CueSDK.KeyboardSDK) { Brush = highlightBrushColor };
 
-                //TODO DarthAffe 05.01.2017: Workaround since there is a bug in the solid color brush - this behaves the same but without the problems caused by this bug.
-                IBrush highlightBrushFlash = new LinearGradientBrush(new LinearGradient(new GradientStop(0, Color.White), new GradientStop(1, Color.White)));
+                IBrush highlightBrushFlash = (SolidColorBrush)Color.White;
                 highlightBrushFlash.AddEffect(new ReactiveTypingEffect(CueSDK.KeyboardSDK) { DecayTime = 0.33f });
                 ListLedGroup highlightGroupFlash = new ListLedGroup(CueSDK.KeyboardSDK, CueSDK.KeyboardSDK) { Brush = highlightBrushFlash };
             }

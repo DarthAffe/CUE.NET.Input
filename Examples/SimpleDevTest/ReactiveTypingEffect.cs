@@ -64,7 +64,7 @@ namespace SimpleDevTest
                     else
                         alpha = 0;
 
-                    renderTarget.Value.A = GetIntColorFromFloat(alpha);
+                    renderTarget.Value.A = ColorHelper.GetIntColorFromFloat(alpha);
                 }
             }
         }
@@ -82,13 +82,6 @@ namespace SimpleDevTest
             base.OnDetach(target);
 
             _observedDevice.UnregisterOnInput(_eventHandler);
-        }
-
-        //TODO DarthAffe 05.01.2017: This is public in the new version of CUE.NET
-        private static byte GetIntColorFromFloat(float f)
-        {
-            float num = Math.Max(0.0f, Math.Min(1f, f));
-            return num.Equals(1f) ? byte.MaxValue : (byte)((double)num * 256.0);
         }
 
         #endregion

@@ -6,9 +6,8 @@ using CUE.NET;
 using CUE.NET.Brushes;
 using CUE.NET.Devices.Generic.Enums;
 using CUE.NET.Exceptions;
+using CUE.NET.Gradients;
 using CUE.NET.Groups;
-using CUE.NET.Input;
-using InputAction = CUE.NET.Input.Enums.InputAction;
 
 namespace SimpleDevTest
 {
@@ -31,18 +30,17 @@ namespace SimpleDevTest
                 CueSDK.Initialize();
                 Console.WriteLine("Initialized with " + CueSDK.LoadedArchitecture + "-SDK");
 
-                CueSDK.KeyboardSDK.Brush = (SolidColorBrush)Color.Black;
+                CueSDK.KeyboardSDK.Brush = new LinearGradientBrush(new RainbowGradient()) { Brightness = 0.125f };
                 CueSDK.UpdateMode = UpdateMode.Continuous;
 
-                ListLedGroup highlightGroup = new ListLedGroup(CueSDK.KeyboardSDK) { Brush = (SolidColorBrush)Color.White };
+                IBrush highlightBrushColor = new LinearGradientBrush(new RainbowGradient());
+                highlightBrushColor.AddEffect(new ReactiveTypingEffect(CueSDK.KeyboardSDK) { DecayTime = 2f });
+                ListLedGroup highlightGroupColor = new ListLedGroup(CueSDK.KeyboardSDK, CueSDK.KeyboardSDK) { Brush = highlightBrushColor };
 
-                CueSDK.KeyboardSDK.RegisterOnInput((sender, eventArgs) =>
-                {
-                    if (eventArgs.Action == InputAction.Pressed)
-                        highlightGroup.AddLed(eventArgs.LedId);
-                    else
-                        highlightGroup.RemoveLed(eventArgs.LedId);
-                });
+                //TODO DarthAffe 05.01.2017: Workaround since there is a bug in the solid color brush - this behaves the same but without the problems caused by this bug.
+                IBrush highlightBrushFlash = new LinearGradientBrush(new LinearGradient(new GradientStop(0, Color.White), new GradientStop(1, Color.White)));
+                highlightBrushFlash.AddEffect(new ReactiveTypingEffect(CueSDK.KeyboardSDK) { DecayTime = 0.33f });
+                ListLedGroup highlightGroupFlash = new ListLedGroup(CueSDK.KeyboardSDK, CueSDK.KeyboardSDK) { Brush = highlightBrushFlash };
             }
             catch (CUEException ex)
             {
